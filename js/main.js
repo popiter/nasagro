@@ -524,16 +524,27 @@ if (appointment) {
 };
 
 let more = document.querySelectorAll('.more');
+
+function textMore(buttonSelector, textSelector) {
+	let button = document.querySelector(buttonSelector),
+		text = document.querySelector(textSelector);
+
+	button.addEventListener('click', () => {
+		if (button.innerHTML == 'Развернуть') {
+			text.style.maxHeight = `${text.scrollHeight}px`
+			text.classList.add('more__active')
+			button.innerHTML = 'Свернуть'
+		} else {
+			text.style.maxHeight = null
+			text.classList.remove('more__active')
+			button.innerHTML = 'Развернуть'
+		}
+	})
+}
+
 if (more) {
-	more.forEach(item => {
-		item.addEventListener('click', () => {
-			if (item.innerHTML == 'Свернуть') {
-				item.innerHTML = 'Развернуть'
-			} else {
-				item.innerHTML = 'Свернуть'
-			}
-		})
-	});
+	textMore('.description__more', ".description__text__more")
+	textMore('.map__more', ".city__more")
 }
 
 let btnScpoll = document.querySelector(".btnScpoll");

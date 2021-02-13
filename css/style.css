@@ -588,12 +588,12 @@ main {
 
 .product__slidar .swiper-button-next {
   right: 0;
-  top: 92%;
+  top: 390px;
 }
 
 .product__slidar .swiper-button-prev {
   left: 0;
-  top: 92%;
+  top: 390px;
 }
 
 .product__description {
@@ -1732,6 +1732,22 @@ main {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+.text__more,
+.city__more {
+  max-height: 0;
+  visibility: hidden;
+  -webkit-transition: max-height 0.3s ease-out;
+  -o-transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease-out;
+}
+
+.more__active {
+  visibility: visible;
+  -webkit-transition: max-height 0.3s ease-out;
+  -o-transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease-out;
 }
 
 @media screen and (max-width: 1300px) {
