@@ -16,6 +16,88 @@ testWebP(function (support) {
 
 new WOW().init();
 
+//кнопка развернуть/свернуть
+let more = document.querySelector('.more');
+
+function textMore(buttonSelector, textSelector) {
+	let button = document.querySelector(buttonSelector),
+		text = document.querySelector(textSelector);
+
+	button.addEventListener('click', () => {
+		if (button.innerHTML == 'Развернуть') {
+			text.style.maxHeight = `${text.scrollHeight}px`
+			text.classList.add('more__active')
+			button.innerHTML = 'Свернуть'
+		} else {
+			text.style.maxHeight = null
+			text.classList.remove('more__active')
+			button.innerHTML = 'Развернуть'
+		}
+	})
+}
+
+if (more) {
+	textMore('.description__more', ".description__text__more")
+	textMore('.map__more', ".city__more")
+}
+//конец кнопка развернуть/свернуть
+
+//кнопка скрола в начало страницы
+let btnScpoll = document.querySelector(".btnScpoll");
+
+if (btnScpoll) {
+	window.onscroll = function () {
+		scrollFunction();
+	};
+}
+
+function scrollFunction() {
+	let btnScpoll = document.querySelector(".btnScpoll");
+	let footer = document.querySelector('.footer');
+	let footerTop = footer.offsetTop;
+	let main = document.querySelector('.main')
+
+	if (window.scrollY + 865 > footerTop) {
+		main.style.position = 'relative'
+		btnScpoll.style.display = 'block';
+	} else {
+		btnScpoll.style.display = 'none';
+	}
+}
+
+
+var t;
+function up() {
+	var top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+	if (top > 0) {
+		window.scrollBy(0, -150);
+		t = setTimeout('up()', 10);
+	} else clearTimeout(t);
+	return false;
+}
+//конец кнопка скрола в начало страницы
+
+//бургер меню
+function burger() {
+	let btnScpoll = document.querySelector(".btnScpoll"),
+		burger = document.querySelector('.header__burger'),
+		buttonCalc = document.querySelector('.button__calc'),
+		menu = document.querySelector('.header__inner__menu');
+	burger.addEventListener('click', () => {
+		burger.classList.toggle('active');
+		menu.classList.toggle('active');
+		document.body.classList.toggle('lock')
+		buttonCalc.classList.toggle('btn__active')
+
+		if (btnScpoll) {
+			btnScpoll.classList.toggle('btn__active')
+		}
+	})
+}
+burger()
+//конец бургер меню
+
+
 // HTML data-da="where(uniq class name),position(digi),when(breakpoint)"
 // e.x. data-da="item,2,992"
 
@@ -165,6 +247,7 @@ new WOW().init();
 		//const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	}
 })();;
+//главный слайдер 
 let sliderTopTwo = document.getElementById('slider2-top'),
 	galleryThumbsTwo = document.getElementById('slider2-thumbs'),
 
@@ -276,9 +359,9 @@ if (sliderTopTwo) {
 		},
 	});
 }
-;
+//конец главный слайдер;
+//слайдер о продукте
 let sliderDescription = document.querySelector('.product__slidar');
-
 
 if (sliderDescription) {
 	var galleryThumbs = new Swiper('.product-thumbs', {
@@ -309,7 +392,9 @@ if (sliderDescription) {
 			swiper: galleryThumbs,
 		},
 	});
-};
+}
+//конец слайдер о продукте;
+//поиск города в шапке сайта
 let selectSingle = document.querySelector('.__select');
 let selectContent = document.querySelector('.__select__content');
 let search = document.getElementById('search');
@@ -363,7 +448,6 @@ sortCity(city)
 let selectSingleTitle = selectSingle.querySelector('.__select__title');
 let selectSingleLabels = selectSingle.querySelectorAll('.__select__label');
 
-// Toggle menu
 selectSingleTitle.addEventListener('click', () => {
 	if ('active' === selectSingle.getAttribute('data-state')) {
 		selectSingle.setAttribute('data-state', '');
@@ -372,13 +456,14 @@ selectSingleTitle.addEventListener('click', () => {
 	}
 });
 
-// Close when click to option
 for (let i = 0; i < selectSingleLabels.length; i++) {
 	selectSingleLabels[i].addEventListener('click', (evt) => {
 		selectSingleTitle.textContent = evt.target.textContent;
 		selectSingle.setAttribute('data-state', '');
 	});
-};
+}
+//конец поиск города в шапке сайта;
+//модальные окна
 let modal = () => {
 	function bindModal(triggerSelect, modalSelect, overlaySelect, closeSelect, buttonSelect, successSelect) {
 		let trigger = document.querySelectorAll(triggerSelect),
@@ -423,8 +508,6 @@ let modal = () => {
 			if (success.classList.contains('active')) {
 				success.classList.remove('active')
 			}
-			// document.body.style.overflow = ''
-			// document.body.style.margin = `0`
 		})
 	}
 
@@ -436,7 +519,9 @@ let modal = () => {
 	bindModal('.calculate', '.modal__calculate', '.modal__overlay', '.modal__close', 'button__calculate', '.modal__success')
 }
 modal()
+//конец модальный окон
 
+//поиск города в модальном окне
 let selectSingleModal = document.querySelector('.modal__select');
 let selectContentModal = document.querySelector('.modal__select__content');
 let searchModal = document.getElementById('modalSearch');
@@ -491,7 +576,6 @@ sortCityModal(cityModal)
 let selectSingleTitleModal = selectSingleModal.querySelector('.modal__select__title');
 let selectSingleLabelsModal = selectSingleModal.querySelectorAll('.modal__select__label');
 
-// Toggle menu
 selectSingleTitleModal.addEventListener('click', () => {
 	if ('active' === selectSingleModal.getAttribute('data-modal')) {
 		selectSingleModal.setAttribute('data-modal', '');
@@ -500,7 +584,6 @@ selectSingleTitleModal.addEventListener('click', () => {
 	}
 });
 
-// Close when click to option
 for (let i = 0; i < selectSingleLabelsModal.length; i++) {
 	selectSingleLabelsModal[i].addEventListener('click', (evt) => {
 		selectSingleTitleModal.textContent = evt.target.textContent;
@@ -521,79 +604,5 @@ if (appointment) {
 			}
 		})
 	});
-};
-
-let more = document.querySelectorAll('.more');
-
-function textMore(buttonSelector, textSelector) {
-	let button = document.querySelector(buttonSelector),
-		text = document.querySelector(textSelector);
-
-	button.addEventListener('click', () => {
-		if (button.innerHTML == 'Развернуть') {
-			text.style.maxHeight = `${text.scrollHeight}px`
-			text.classList.add('more__active')
-			button.innerHTML = 'Свернуть'
-		} else {
-			text.style.maxHeight = null
-			text.classList.remove('more__active')
-			button.innerHTML = 'Развернуть'
-		}
-	})
 }
-
-if (more) {
-	textMore('.description__more', ".description__text__more")
-	textMore('.map__more', ".city__more")
-}
-
-let btnScpoll = document.querySelector(".btnScpoll");
-
-if (btnScpoll) {
-	window.onscroll = function () {
-		scrollFunction();
-	};
-}
-
-function scrollFunction() {
-	let btnScpoll = document.querySelector(".btnScpoll");
-	let footer = document.querySelector('.footer');
-	let footerTop = footer.offsetTop;
-	let main = document.querySelector('.main')
-
-	if (window.scrollY + 865 > footerTop) {
-		main.style.position = 'relative'
-		btnScpoll.style.display = 'block';
-	} else {
-		btnScpoll.style.display = 'none';
-	}
-}
-
-
-var t;
-function up() {
-	var top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
-	if (top > 0) {
-		window.scrollBy(0, -150);
-		t = setTimeout('up()', 10);
-	} else clearTimeout(t);
-	return false;
-}
-
-function burger() {
-	let btnScpoll = document.querySelector(".btnScpoll"),
-		burger = document.querySelector('.header__burger'),
-		buttonCalc = document.querySelector('.button__calc'),
-		menu = document.querySelector('.header__inner__menu');
-	burger.addEventListener('click', () => {
-		burger.classList.toggle('active');
-		menu.classList.toggle('active');
-		document.body.classList.toggle('lock')
-		buttonCalc.classList.toggle('btn__active')
-
-		if (btnScpoll) {
-			btnScpoll.classList.toggle('btn__active')
-		}
-	})
-}
-burger()
+//конец поиск города в модальном окне;

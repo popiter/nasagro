@@ -892,9 +892,6 @@ main {
 
 .city__place:hover + .city__title {
   visibility: visible;
-  -webkit-transition: visibility 0.5s;
-  -o-transition: visibility 0.5s;
-  transition: visibility 0.5s;
   z-index: 2;
   margin-bottom: 6px;
   margin-top: -9px;

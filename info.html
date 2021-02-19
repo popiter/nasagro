@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/swiper-bundle.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css">
 	<link rel="stylesheet" href="css/style.min.css">
 	<title>Nasagro</title>
 </head>
@@ -15,19 +15,19 @@
 			<div class="header__container ">
 				<div class="header__inner">
 					<div class="header__logo">
-						<a href="index.html"><img src="img/header/logo.svg" alt="dwadwa"></a>
+						<a href="index.html"><img src="img/header/logo.svg" alt="Nasagro"></a>
 					</div>
 					<div class="header__search" data-da="header__inner__menu, 0, 940">
 						<div class="header__search__text">Выберите город:</div>
 						<form action="">
 							<div class="__select" data-state="">
 								<div class="__select__button">
-									<img src="img/header/map-pin-1.svg" alt="">
+									<img src="img/header/map-pin-1.svg" alt="Иконка геолокации">
 									<div class="__select__title">Выберите город</div>
 								</div>
 								<div class="__select__title__inner">
 									<div class="search__block">
-										<img src="img/header/icon.svg" alt="">
+										<img src="img/header/icon.svg" alt="Иконка поиска">
 										<input type="text" placeholder="Поиск по городу" id="search">
 									</div>
 									<div class="__select__content"></div>
@@ -42,10 +42,10 @@
 					</div>
 					<div class="header__inner__menu">
 						<nav class="header__nav nav" data-da="header__inner__menu, 3, 940">
-							<a href="#" class="nav__inner">насос для навоза</a>
-							<a href="#" class="nav__inner">насос для жижи</a>
-							<a href="#" class="nav__inner">насос для грязи</a>
-							<a href="#" class="nav__inner">насос для патоки</a>
+							<a href="index.html" class="nav__inner">насос для навоза</a>
+							<a href="index2.html" class="nav__inner">насос для жижи</a>
+							<a href="index3.html" class="nav__inner">насос для грязи</a>
+							<a href="index4.html" class="nav__inner">насос для патоки</a>
 						</nav>
 						<div class="header__tel">
 							<a href="tel:+375 29 213-45-11" class="header__tel__tel">+375 29 213-45-11</a>
@@ -115,12 +115,12 @@
 					</div>
 					<div class="footer__top__inner__nav footer__nav">
 						<div class="footer__nav__block">
-							<a href="#" class="footer__nav__link">насос для навоза</a>
-							<a href="#" class="footer__nav__link">насос для жижи</a>
+							<a href="index.html" class="footer__nav__link">насос для навоза</a>
+							<a href="index2.html" class="footer__nav__link">насос для жижи</a>
 						</div>
 						<div class="footer__nav__block">
-							<a href="#" class="footer__nav__link">насос для грязи</a>
-							<a href="#" class="footer__nav__link">насос для патоки</a>
+							<a href="index3.html" class="footer__nav__link">насос для грязи</a>
+							<a href="index4.html" class="footer__nav__link">насос для патоки</a>
 						</div>
 					</div>
 				</div>
@@ -129,13 +129,13 @@
 		<div class="container">
 			<div class="footer__bottom">
 				<div class="footer__bottom__copyright" data-da="footer__bottom, last, 425">© 2021 Nasagro.ru</div>
-				<a href="#" class="footer__bottom__privacy">Политика конфидентиальности</a>
+				<a href="info.html" class="footer__bottom__privacy">Политика конфидентиальности</a>
 			</div>
 		</div>
 	</footer>
 
 	<div class="modal modal__bell">
-		<button class="modal__close"><img src="img/modal/icon-close.svg" alt=""></button>
+		<button class="modal__close"><img src="img/modal/icon-close.svg" alt="Иконка"></button>
 		<h2 class="modal__title">Заявка на обратный звонок</h2>
 		<div class="modal__text">Наш специалист свяжутся с вами
 			и проконсультирует по всем вопросам.</div>
@@ -146,14 +146,14 @@
 			<div class="modal__checkbox">
 				<input class="custom-checkbox" type="checkbox" id="privacy-1" name="" value="" required>
 				<label for="privacy-1"></label>
-				<p>Я согласлен с <a href="#">политикой конфиденциальности</a></p>
+				<p>Я согласлен с <a href="info.html">политикой конфиденциальности</a></p>
 			</div>
-			<button type="submit" class="modal__button">Отправить</button>
+			<button type="submit" class="modal__button" id="button__bell">Отправить</button>
 		</form>
 	</div>
 
 	<div class="modal modal__calculate">
-		<button class="modal__close"><img src="img/modal/icon-close.svg" alt=""></button>
+		<button class="modal__close"><img src="img/modal/icon-close.svg" alt="Иконка"></button>
 		<form action="" class="modal__calculate__inner">
 			<div class="modal__calculate__inner__left" data-da="modal__calculate__inner__right, 1, 920">
 				<div class="modal__search">
@@ -164,10 +164,10 @@
 						</div>
 						<div class="modal__select__title__inner">
 							<div class="search__block">
-								<img src="img/header/icon.svg" alt="">
+								<img src="img/header/icon.svg" alt="Иконка">
 								<input type="text" placeholder="Поиск по городу" id="modalSearch">
 							</div>
-							<div class="modal__select__content">dwadwa</div>
+							<div class="modal__select__content"></div>
 						</div>
 					</div>
 				</div>
@@ -247,16 +247,23 @@
 				<div class="modal__checkbox">
 					<input class="custom-checkbox" type="checkbox" id="privacy-3" name="" value="" required>
 					<label for="privacy-3"></label>
-					<p>Я согласлен с <a href="#">политикой конфиденциальности</a></p>
+					<p>Я согласлен с <a href="info.html">политикой конфиденциальности</a></p>
 				</div>
-				<button type="submit" class="modal__button">Отправить</button>
+				<button type="submit" class="modal__button" id="button__calculate">Отправить</button>
 			</div>
 		</form>
 	</div>
 
+	<div class="modal modal__success">
+		<button class="modal__close"><img src="img/modal/icon-close.svg" alt="Иконка"></button>
+		<h2 class="modal__title"></h2>
+		<div class="modal__text">Ваша заявка отправлена, спасибо!</div>
+	</div>
+
 	<div class="modal__overlay"></div>
 
-	<script src="js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.0.0/wow.min.js"></script>
+	<script src="js/main.min.js"></script>
 </body>
 
 </html>
